@@ -1,7 +1,7 @@
-import React from "react";
+import type { ReactElement } from 'react'
 
-function App() {
-  return <div className="App">To do List</div>;
+const App = (): ReactElement => {
+  return <div className="App">To do List</div>
 }
 
-export default App;
+export default App
