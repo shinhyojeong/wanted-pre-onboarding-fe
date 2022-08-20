@@ -1,7 +1,8 @@
 import type { ReactElement } from 'react'
+import Router from '@routes'
 
 const App = (): ReactElement => {
-  return <div className="app"> To Do List</div>
+  return <Router />
 }
 
 export default App

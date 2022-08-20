@@ -6,6 +6,8 @@
       "@components": ["components"],
       "@constants/*": ["constants/*"],
       "@constants": ["constants"],
+      "@routes/*": ["routes/*"],
+      "@routes": ["routes"],
       "@hooks/*": ["hooks/*"],
       "@hooks": ["hooks"],
       "@pages/*": ["pages/*"],
