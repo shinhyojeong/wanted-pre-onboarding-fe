@@ -4,11 +4,15 @@
     {
       "files": ["*.ts", "*.tsx"],
       "parserOptions": {
-        "project": ["tsconfig.json"]
+        "project": ["./tsconfig.json"]
       }
     }
   ],
   "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": ["tsconfig.json"]
+  },
+  "ignorePatterns": ["craco.config.js"],
   "extends": [
     "react-app",
     "eslint:recommended",
