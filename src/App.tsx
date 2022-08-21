@@ -1,3 +1,4 @@
+import '@styles/index.css'
 import type { ReactElement } from 'react'
 import Router from '@routes'
 
