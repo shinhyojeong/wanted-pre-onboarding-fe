@@ -18,7 +18,7 @@ type StyledButtonProps = Pick<
 >
 
 const StyledButton = styled.button<StyledButtonProps>`
-  width: ${({ width }): string => `${width}px`};
+  width: ${({ width }): string => (width ? `${width}px` : '100%')};
   height: ${({ height }): string => `${height}px`};
   font-size: ${({ fontSize }): string => `${fontSize}px`};
   background-color: ${({ bgColor = 'black' }): string => bgColor};
@@ -31,8 +31,8 @@ export const Button = ({
   children,
   bgColor = 'black',
   value,
-  width = 50,
-  height = 30,
+  width,
+  height = 40,
   radius = 10,
   fontSize = 14,
   onClick
