@@ -2,7 +2,6 @@ import type { ReactElement } from 'react'
 import styled from '@emotion/styled'
 
 interface ButtonProps {
-  type?: 'button' | 'submit'
   fontSize?: number
   bgColor?: string
   children: string
@@ -30,7 +29,6 @@ const StyledButton = styled.button<StyledButtonProps>`
 
 export const Button = ({
   children,
-  type = 'button',
   bgColor = 'black',
   value,
   width = 50,
@@ -45,7 +43,7 @@ export const Button = ({
       fontSize={fontSize}
       height={height}
       radius={radius}
-      type={type}
+      type="button"
       value={value}
       width={width}
       onClick={onClick}>
