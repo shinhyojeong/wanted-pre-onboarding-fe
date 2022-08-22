@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react'
+import type { ChangeEventHandler, ReactElement } from 'react'
 import styled from '@emotion/styled'
 
 type InputType = 'email' | 'text' | 'password'
@@ -7,9 +7,9 @@ interface InputProps {
   placeholder?: string
   width?: number
   height?: number
-  name: string
+  name?: string
   type: InputType
-  onChange(): void
+  onChange?: ChangeEventHandler<HTMLInputElement>
 }
 
 type StyledInputProps = Pick<InputProps, 'width' | 'height'>
