@@ -39,6 +39,6 @@ const StyledInput = styled.input<StyledInputProps>`
   width: ${({ width }): string => (width ? `${width}px` : '100%')};
   height: ${({ height }): string => `${height}px`};
   box-sizing: border-box;
-  border: solid 2px #dcdcdc;
-  border-radius: 10px;
+  border: solid 1px #dcdcdc;
+  border-radius: 3px;
 `
