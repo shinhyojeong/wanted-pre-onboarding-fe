@@ -50,6 +50,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   color: white;
   border: none;
   border-radius: ${({ radius }): string => `${radius}px`};
+  cursor: pointer;
 
   &:disabled {
     background-color: gray;
