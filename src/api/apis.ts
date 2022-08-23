@@ -3,8 +3,8 @@ import type {
   GetTodoPayload,
   GetUserPayload
 } from 'payloads'
-import type { SignOption, TodoOption } from './instance'
 import { instance } from './instance'
+import type { SignOption } from './instance'
 
 type UpdateTodoOption = Pick<GetTodoPayload, 'id' | 'todo' | 'isCompleted'>
 
@@ -16,15 +16,15 @@ export const authApi = {
 }
 
 export const todoApi = {
-  createTodo: (todo: TodoOption): Promise<GetTodoPayload> =>
-    instance.post('/todos', todo),
+  createTodo: (todo: string): Promise<{ data: GetTodoPayload }> =>
+    instance.post('/todos', { todo }),
   deleteTodo: (todoId: number): Promise<void> =>
     instance.delete(`/todos/${todoId}`),
-  getTodo: (): Promise<GetTodoListPayload> => instance.get('/todos'),
+  getTodo: (): Promise<{ data: GetTodoListPayload }> => instance.get('/todos'),
   updateTodo: ({
     todo,
     id,
     isCompleted
-  }: UpdateTodoOption): Promise<GetTodoPayload> =>
+  }: UpdateTodoOption): Promise<{ data: GetTodoPayload }> =>
     instance.put(`/todos/${id}`, { isCompleted, todo })
 }
