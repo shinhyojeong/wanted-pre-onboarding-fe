@@ -3,14 +3,19 @@ import type { ReactElement } from 'react'
 import styled from '@emotion/styled'
 import { useState } from 'react'
 
-interface TodoProps {
+interface TodoProps extends TodoInfo {
+  onDeleteClick(todoId: number): void
+  onFinishClick(todoInfo: TodoInfo): void
+}
+
+export interface TodoInfo {
+  id: number
   todo: string
   isCompleted: boolean
-  onDeleteClick(): void
-  onFinishClick(): void
 }
 
 export const Todo = ({
+  id,
   todo,
   isCompleted,
   onDeleteClick,
@@ -19,12 +24,20 @@ export const Todo = ({
   const [finishTodo, setFinishTodo] = useState(isCompleted)
 
   const handleClickFinish = (): void => {
+    onFinishClick({
+      id,
+      isCompleted: !finishTodo,
+      todo
+    })
     setFinishTodo(!finishTodo)
-    onFinishClick()
+  }
+
+  const handleClickDelete = (): void => {
+    onDeleteClick(id)
   }
 
   return (
-    <StyledTodo>
+    <StyledTodo data-id={id}>
       <Text children={todo} line={finishTodo} tag="p" />
       <StyledButtonWrapper>
         <Button
@@ -43,7 +56,7 @@ export const Todo = ({
           height={24}
           radius={5}
           width={30}
-          onClick={onDeleteClick}
+          onClick={handleClickDelete}
         />
       </StyledButtonWrapper>
     </StyledTodo>

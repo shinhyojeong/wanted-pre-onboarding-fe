@@ -16,7 +16,10 @@ export const TodoInput = ({ onAddClick }: TodoInputProps): ReactElement => {
       return
     }
 
-    const todo = (form[0] as HTMLInputElement).value
+    const todoInput = form[0] as HTMLInputElement
+    const todo = todoInput.value
+    todoInput.value = ''
+
     onAddClick(todo)
   }
 
@@ -31,5 +34,6 @@ export const TodoInput = ({ onAddClick }: TodoInputProps): ReactElement => {
 const StyledTodoInput = styled.form`
   display: flex;
   justify-content: space-between;
+  gap: 10px;
   width: 100%;
 `
