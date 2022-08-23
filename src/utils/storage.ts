@@ -10,7 +10,7 @@ export const getStorage = (key: string, defaultValue = ''): string => {
 
     return JSON.parse(value)
   } catch (e) {
-    alert('storage에서 데이터를 불러오는데 실패했습니다.')
+    console.warn('storage에서 데이터를 불러오는데 실패했습니다.')
 
     return ''
   }

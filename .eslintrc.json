@@ -24,7 +24,7 @@
     "consistent-return": ["error", { "treatUndefinedAsUnspecified": true }],
     "default-case-last": "error",
     "func-style": ["error", "expression"],
-    "no-console": "error",
+    "no-console": ["error", { "allow": ["warn", "error"] }],
     "no-empty": "error",
     "sort-keys": ["error", "asc"],
     "no-use-before-define": "off",
