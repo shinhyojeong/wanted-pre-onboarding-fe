@@ -1,9 +1,11 @@
 import { Button, Input } from '@base'
 import type { ChangeEvent, MouseEvent, ReactElement } from 'react'
+import { Link } from 'react-router-dom'
+import styled from '@emotion/styled'
 import { useState } from 'react'
 import { validationInput } from '@utils/vaildation'
 
-interface UserInfo {
+export interface UserInfo {
   email: string
   password: string
 }
@@ -31,7 +33,7 @@ export const LoginForm = ({ onLogin }: LoginFormProps): ReactElement => {
   }
 
   return (
-    <form>
+    <StyledLoginForm>
       <Input
         name="email"
         placeholder="이메일을 입력해 주세요."
@@ -44,16 +46,29 @@ export const LoginForm = ({ onLogin }: LoginFormProps): ReactElement => {
         type="password"
         onChange={handleChangeInput}
       />
-      <Button
-        children="로그인/회원가입"
-        disabled={
-          !(
-            validationInput('email', userInfo.email) &&
-            validationInput('password', userInfo.password)
-          )
-        }
-        onClick={handleLogin}
-      />
-    </form>
+      <Link to="/todo">
+        <Button
+          children="로그인/회원가입"
+          disabled={
+            !(
+              validationInput('email', userInfo.email) &&
+              validationInput('password', userInfo.password)
+            )
+          }
+          onClick={handleLogin}
+        />
+      </Link>
+    </StyledLoginForm>
   )
 }
+
+const StyledLoginForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 350px;
+
+  button {
+    margin-top: 15px;
+  }
+`

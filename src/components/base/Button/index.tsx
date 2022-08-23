@@ -54,5 +54,6 @@ const StyledButton = styled.button<StyledButtonProps>`
 
   &:disabled {
     background-color: gray;
+    cursor: auto;
   }
 `
