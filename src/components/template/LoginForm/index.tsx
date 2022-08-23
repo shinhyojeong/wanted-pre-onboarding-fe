@@ -1,6 +1,5 @@
 import { Button, Input } from '@base'
 import type { ChangeEvent, MouseEvent, ReactElement } from 'react'
-import { Link } from 'react-router-dom'
 import styled from '@emotion/styled'
 import { useState } from 'react'
 import { validationInput } from '@utils/vaildation'
@@ -46,18 +45,16 @@ export const LoginForm = ({ onLogin }: LoginFormProps): ReactElement => {
         type="password"
         onChange={handleChangeInput}
       />
-      <Link to="/todo">
-        <Button
-          children="로그인/회원가입"
-          disabled={
-            !(
-              validationInput('email', userInfo.email) &&
-              validationInput('password', userInfo.password)
-            )
-          }
-          onClick={handleLogin}
-        />
-      </Link>
+      <Button
+        children="로그인/회원가입"
+        disabled={
+          !(
+            validationInput('email', userInfo.email) &&
+            validationInput('password', userInfo.password)
+          )
+        }
+        onClick={handleLogin}
+      />
     </StyledLoginForm>
   )
 }
